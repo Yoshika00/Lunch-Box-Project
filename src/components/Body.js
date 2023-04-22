@@ -24,10 +24,12 @@ const Body = () => {
     
 
     async function getRestaurants() {
-        const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING`);
+        //const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING`);
+        const data = await fetch(`https://www.swiggy.com/mapi/homepage/getCards?lat=21.2513844&lng=81.62964130000002`)
         const json = await data.json();
         console.log(json);
-        setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        //setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        setRestaurants(json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
     }
 
 
